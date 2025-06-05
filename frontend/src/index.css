@@ -1,0 +1,17 @@
+:root {
+  --main-color: rgb(229, 229, 229);
+  --secondary-color: rgb(30, 30, 30);
+  --bnb-color: #f2bd35;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--secondary-color);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
