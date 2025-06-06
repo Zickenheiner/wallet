@@ -41,8 +41,9 @@ h2 {
 .transaction-forms-container {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  gap: 3rem;
 }
 
 .eth {

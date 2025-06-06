@@ -5,9 +5,9 @@ import App from "./App.tsx";
 import GlobalProvider from "./contexts/GlobalProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  // <StrictMode>
-  <GlobalProvider>
-    <App />
-  </GlobalProvider>
-  // </StrictMode>
+  <StrictMode>
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
+  </StrictMode>
 );
