@@ -10,6 +10,7 @@ import {
 import { parseEther } from "viem";
 import TransactionForm from "./TransactionForm";
 import binanceImg from "/binance.png";
+import { use, useEffect } from "react";
 
 export default function Main() {
   const account = useAccount();
@@ -49,30 +50,42 @@ export default function Main() {
     });
   };
 
-  if (isSuccessAddFunds) {
-    toast.toastSuccess("Funds added successfully");
-    refetchBalance();
-  }
+  useEffect(() => {
+    if (isSuccessAddFunds) {
+      toast.toastSuccess("Funds added successfully");
+      refetchBalance();
+      console.log("test");
+    }
+  }, [isSuccessAddFunds, refetchBalance]);
 
-  if (isSuccessWithdraw) {
-    toast.toastSuccess("Funds withdrawn successfully");
-    refetchBalance();
-  }
+  useEffect(() => {
+    if (isSuccessWithdraw) {
+      toast.toastSuccess("Funds withdrawn successfully");
+      refetchBalance();
+      console.log("test");
+    }
+  }, [isSuccessWithdraw, refetchBalance]);
 
-  if (errorGetBalance) {
-    toast.toastError("Error while getting balance");
-    console.error(errorGetBalance);
-  }
+  useEffect(() => {
+    if (errorGetBalance) {
+      toast.toastError("Error while getting balance");
+      console.error(errorGetBalance);
+    }
+  }, [errorGetBalance]);
 
-  if (errorAddFunds) {
-    toast.toastError(errorAddFunds.message.split(".")[0]);
-    console.error(errorAddFunds);
-  }
+  useEffect(() => {
+    if (errorAddFunds) {
+      toast.toastError("Error while adding funds");
+      console.error(errorAddFunds);
+    }
+  }, [errorAddFunds]);
 
-  if (errorWithdraw) {
-    toast.toastError(errorWithdraw.message.split(".")[0]);
-    console.error(errorWithdraw);
-  }
+  useEffect(() => {
+    if (errorWithdraw) {
+      toast.toastError("Error while withdrawing funds");
+      console.error(errorWithdraw);
+    }
+  }, [errorWithdraw]);
 
   return (
     <main>
@@ -84,7 +97,7 @@ export default function Main() {
           {isPending || errorGetBalance
             ? 0
             : Number(balance as string) / 10 ** 18}{" "}
-          <span className="eth">BNB</span>
+          <span className="bnb">BNB</span>
         </h2>
       </section>
       <div className="transaction-forms-container">
