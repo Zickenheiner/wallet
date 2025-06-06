@@ -18,6 +18,7 @@ export default function Main() {
     data: balance,
     isError: errorGetBalance,
     isPending,
+    refetch: refetchBalance,
   } = useReadContract({
     ...wagmiContractConfig,
     functionName: "getBalance",
@@ -50,10 +51,12 @@ export default function Main() {
 
   if (isSuccessAddFunds) {
     toast.toastSuccess("Funds added successfully");
+    refetchBalance();
   }
 
   if (isSuccessWithdraw) {
     toast.toastSuccess("Funds withdrawn successfully");
+    refetchBalance();
   }
 
   if (errorGetBalance) {
