@@ -10,7 +10,7 @@ import {
 import { parseEther } from "viem";
 import TransactionForm from "./TransactionForm";
 import binanceImg from "/binance.png";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Main() {
   const account = useAccount();
