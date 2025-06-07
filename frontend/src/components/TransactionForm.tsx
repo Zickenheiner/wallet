@@ -30,7 +30,7 @@ export default function TransactionForm({
       <input
         type="number"
         ref={amountRef}
-        placeholder="Amount in ETH"
+        placeholder="Amount in BNB"
         required
       />
       <button type="button" onClick={handleClick}>
